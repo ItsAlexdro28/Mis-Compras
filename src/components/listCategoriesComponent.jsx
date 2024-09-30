@@ -25,7 +25,7 @@ const ListCategoriesComponent = () => {
 	}
 
 	function updateCategory(id) {
-		navigator(`edit-category/${id}`)
+		navigator(`/edit-category/${id}`)
 		
 	}
 

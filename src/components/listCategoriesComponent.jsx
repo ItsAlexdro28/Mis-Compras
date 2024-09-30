@@ -62,8 +62,8 @@ const ListCategoriesComponent = () => {
 							<td>{category.descripcion}</td>
 							<td>{category.estado}</td>
 							<td>
-								<button className="btn btn-info" onClick={() => updateCategory(category.id)}>Update</button>
-								<button className="btn btn-danger" onClick={() => removeCategory(category.id)}>Delete</button>
+								<button className="btn btn-info m-1" onClick={() => updateCategory(category.id)}>Update</button>
+								<button className="btn btn-danger m-1" onClick={() => removeCategory(category.id)}>Delete</button>
 							</td>
 						</tr>)
 

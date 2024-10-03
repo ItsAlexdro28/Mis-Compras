@@ -1,5 +1,5 @@
 import react, { useEffect, useState } from 'react';
-import { createCategory, getCategory, updateCategory } from '../services/categoryService';
+import { createCategory, getCategory, updateCategory } from '../services/CategoryService';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const CategoryComponent = () => {
@@ -95,36 +95,55 @@ const CategoryComponent = () => {
 			return <h2 className='text-center'>Add Category</h2>	
 		}
 	}
-
 	return (
-		<div className= 'container'>
-			<div className="row">
-				<div className="card">
-					{
-						pageTitle()
-					}
-					<div className="card-body">
-						<form action="" >
-							<div className='form-group mb-2'>
-								<label htmlFor="" className="form-label">Desciption:</label>
-								<input type="text" placeholder='Enter Description:' name='description' value={descripcion} className={`form-control ${errors.descripcion ? 'is-invalid': ''}`} onChange={handleDescription}/>
-								{errors.descripcion && <div className='invalid-feedback'>{errors.descripcion}</div>}
+		<div className='container mx-auto p-4'>
+			<div className="flex justify-center">
+				<div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6">
+					{pageTitle()}
+					<div>
+						<form action="">
+							<div className='mb-4'>
+								<label htmlFor="description" className="block text-gray-700 font-bold mb-2">
+									Description:
+								</label>
+								<input
+									type="text"
+									placeholder="Enter Description"
+									name="description"
+									value={descripcion}
+									className={`block w-full p-2 border ${errors.descripcion ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring focus:ring-opacity-50`}
+									onChange={handleDescription}
+								/>
+								{errors.descripcion && <p className='text-red-500 text-sm mt-1'>{errors.descripcion}</p>}
 							</div>
 
-
-							<div className='form-group mb-2'>
-								<label htmlFor="" className="form-label">State:</label>
-								<input type="number" placeholder='Enter State:' name='estado' value={estado} className={`form-control ${errors.estado ? 'is-invalid': ''}`} onChange={handleState}/>
-								{errors.estado && <div className='invalid-feedback'>{errors.estado}</div>}
+							<div className='mb-4'>
+								<label htmlFor="estado" className="block text-gray-700 font-bold mb-2">
+									State:
+								</label>
+								<input
+									type="number"
+									placeholder="Enter State"
+									name="estado"
+									value={estado}
+									className={`block w-full p-2 border ${errors.estado ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring focus:ring-opacity-50`}
+									onChange={handleState}
+								/>
+								{errors.estado && <p className='text-red-500 text-sm mt-1'>{errors.estado}</p>}
 							</div>
 
-							<button className='btn btn-success'onClick={saveOrUpdateCategory}>Submit</button>
+							<button
+								className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
+								onClick={saveOrUpdateCategory}
+							>
+								Submit
+							</button>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-	)
+	);
 }
 
-export default CategoryComponent
+export default CategoryComponent;

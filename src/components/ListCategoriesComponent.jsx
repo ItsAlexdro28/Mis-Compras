@@ -45,7 +45,7 @@ const ListCategoriesComponent = () => {
 
 		<h2 className="text-center text-2xl font-semibold mb-6">List Categories</h2>
 		<button
-			className="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg mb-4 hover:bg-blue-600 transition duration-300"
+			className="bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mb-4 hover:bg-blue-600 transition duration-300"
 			onClick={addNewCategory}
 		>
 			Add Category
@@ -86,6 +86,7 @@ const ListCategoriesComponent = () => {
 		</table>
 	</div>
 );
+
 }
 
 export default ListCategoriesComponent

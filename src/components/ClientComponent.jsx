@@ -8,7 +8,7 @@ const ClientComponent = () => {
 	const [apellido, setApellido] = useState('');
 	const [celular, setCelular] = useState('');
 	const [correo, setCorreo] = useState('');
-	const [direccion, setDireccion] = useState('');
+	const [dirreccion, setDireccion] = useState('');
 
 	const {id} = useParams();
 	const [errors, setErrors] = useState({
@@ -16,7 +16,7 @@ const ClientComponent = () => {
 		apellido: '',
 		celular: '',
 		correo: '',
-		direccion: ''
+		dirreccion: ''
 	});
 
 	const navigator = useNavigate();
@@ -28,7 +28,7 @@ const ClientComponent = () => {
 				setApellido(response.data.apellido);
 				setCelular(response.data.celular);
 				setCorreo(response.data.correo);
-				setDireccion(response.data.direccion);
+				setDireccion(response.data.dirreccion);
 			}).catch(error => {
 				console.error(error);
 			});
@@ -42,7 +42,7 @@ const ClientComponent = () => {
 			case 'apellido': setApellido(value); break;
 			case 'celular': setCelular(value); break;
 			case 'correo': setCorreo(value); break;
-			case 'direccion': setDireccion(value); break;
+			case 'dirreccion': setDireccion(value); break;
 			default: break;
 		}
 	}
@@ -51,20 +51,20 @@ const ClientComponent = () => {
 		e.preventDefault();
 
 		if(validateForm()) {
-			const client = { nombre, apellido, celular, correo, direccion };
+			const client = { nombre, apellido, celular, correo, dirreccion };
 			console.log(client);
 
 			if(id){
 				updateClient(id, client).then((response) => {
 					console.log(response.data);
-					navigator('/clients');
+					navigator('/client');
 				}).catch(error => {
 					console.error(error);
 				});
 			} else {
 				createClient(client).then((response) => {
 					console.log(response.data);
-					navigator('/clients');
+					navigator('/client');
 				}).catch(error => {
 					console.error(error);
 				});
@@ -104,10 +104,10 @@ const ClientComponent = () => {
 			valid = false;
 		}
 
-		if(direccion.trim()){
-			errorsCopy.direccion = '';
+		if(dirreccion.trim()){
+			errorsCopy.dirreccion = '';
 		} else {
-			errorsCopy.direccion = 'Address is required';
+			errorsCopy.dirreccion = 'Address is required';
 			valid = false;
 		}
 
@@ -181,13 +181,13 @@ const ClientComponent = () => {
 							<label className="block text-gray-700 font-bold mb-2">Address:</label>
 							<input
 								type="text"
-								name="direccion"
+								name="dirreccion"
 								placeholder="Enter Address"
-								value={direccion}
-								className={`block w-full p-2 border ${errors.direccion ? 'border-red-500' : 'border-gray-300'} rounded-lg`}
+								value={dirreccion}
+								className={`block w-full p-2 border ${errors.dirreccion ? 'border-red-500' : 'border-gray-300'} rounded-lg`}
 								onChange={handleInputChange}
 							/>
-							{errors.direccion && <p className='text-red-500 text-sm mt-1'>{errors.direccion}</p>}
+							{errors.dirreccion && <p className='text-red-500 text-sm mt-1'>{errors.dirreccion}</p>}
 						</div>
 
 						<button

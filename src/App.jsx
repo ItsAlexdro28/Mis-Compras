@@ -4,13 +4,13 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import ListCategoriesComponent from './components/ListCategoriesComponent.jsx' 
 import ListClientComponent from './components/ListClientComponent.jsx' 
-// import ListSaleComponent from './components/ListSaleComponent.jsx'
+import ListSaleComponent from './components/ListSaleComponent.jsx'
 // import ListSalesProductsComponent from './components/ListSalesProductsComponent.jsx'
 import ListProductComponent from './components/ListProductComponent.jsx'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import CategoryComponent from './components/CategoryComponent.jsx'
 import ClientComponent from './components/ClientComponent.jsx'
-// import SaleComponent from './components/SaleComponent.jsx'
+import SaleComponent from './components/SaleComponent.jsx'
 // import SalesProductsComponent from './components/SalesProductsComponent.jsx'
 import ProductComponent from './components/ProductComponent.jsx'
 import Menu from './Menu.jsx'
@@ -32,6 +32,9 @@ function App() {
 			<Route path='/client' element = {<ListClientComponent />}></Route>
 			<Route path='/add-client' element = {<ClientComponent />}></Route>
 			<Route path='/edit-client/:id' element = {<ClientComponent />}></Route>
+			<Route path='/sale' element = {<ListSaleComponent />}></Route>
+			<Route path='/add-sale' element = {<SaleComponent />}></Route>
+			<Route path='/edit-sale/:id' element = {<SaleComponent />}></Route>
 	  	</Routes>
 	  </BrowserRouter>
 
